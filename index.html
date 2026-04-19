@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Smart Car Health Advisor</title>
+
+<style>
+
+body {
+font-family: Arial;
+background-color: #f4f6f8;
+text-align: center;
+margin-top: 60px;
+}
+
+.container {
+background: white;
+width: 400px;
+margin: auto;
+padding: 30px;
+border-radius: 12px;
+box-shadow: 0px 6px 20px rgba(0,0,0,0.1);
+}
+
+select, button {
+padding: 10px;
+margin-top: 10px;
+font-size: 16px;
+}
+
+button {
+background-color: #2c7be5;
+color: white;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #1a5ec8;
+}
+
+#result {
+margin-top: 25px;
+font-size: 18px;
+font-weight: bold;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<h2>🚗 Smart Car Health Advisor</h2>
+
+<p>Select a symptom:</p>
+
+<select id="symptom">
+
+<option value="">Choose one</option>
+<option value="1">Engine Noise</option>
+<option value="2">Check Engine Light</option>
+<option value="3">Car Pulling Sideways</option>
+<option value="4">Brake Noise</option>
+<option value="5">Poor Fuel Economy</option>
+
+</select>
+
+<br>
+
+<button onclick="diagnose()">Diagnose Issue</button>
+
+<button onclick="resetResult()">Reset</button>
+
+<div id="result"></div>
+
+</div>
+
+
+<script>
+
+function diagnose() {
+
+let choice = document.getElementById("symptom").value;
+
+let result = "";
+
+if(choice == 1)
+result = "Possible Issue: Low oil or engine wear | Urgency: HIGH";
+
+else if(choice == 2)
+result = "Possible Issue: Sensor/emissions issue | Urgency: MEDIUM";
+
+else if(choice == 3)
+result = "Possible Issue: Alignment problem | Urgency: MEDIUM";
+
+else if(choice == 4)
+result = "Possible Issue: Worn brake pads | Urgency: HIGH";
+
+else if(choice == 5)
+result = "Possible Issue: Tire pressure or air filter issue | Urgency: LOW";
+
+else
+result = "Please select a symptom.";
+
+document.getElementById("result").innerText = result;
+
+}
+
+function resetResult() {
+
+document.getElementById("result").innerText = "";
+
+document.getElementById("symptom").value = "";
+
+}
+
+</script>
+
+</body>
+
+</html>
